@@ -2,42 +2,30 @@ package Board;
 
 import Buttons.BuilderDirector;
 import Buttons.ButtonImageBuilder;
-import Manager.GameManager;
+import Manager.LevelManager;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class BoardGenerator
 {
-	private static boolean isChuck = false;
-
 	private static boolean[] getBoard()
 	{
-		int elements = GameManager.getFieldsCountByLevel();
+		int elements = LevelManager.getFieldsCountByLevel();
 		boolean[] board = new boolean[elements];
 
-		while (!isChuck)
+		while (true)
 		{
 			for (int i = 0; i < elements; i++)
 			{
+				boolean isChuck = getRandomBoolean();
 				if (isChuck)
 				{
-					board[i] = false;
-				} else
-				{
-					boolean random = getRandomBoolean();
-					if (random)
-					{
-						isChuck = true;
-					}
-
-					board[i] = random;
+					board[i] = isChuck;
+					return board;
 				}
 			}
 		}
-
-		isChuck = false;
-		return board;
 	}
 
 	private static boolean getRandomBoolean()
@@ -47,7 +35,7 @@ public class BoardGenerator
 
 	public static void PrepareBoard(JLabel jLabel, JPanel jpanel)
 	{
-		int level = GameManager.getLevel();
+		int level = LevelManager.getLevel();
 		jpanel.removeAll();
 		GridLayout experimentLayout = new GridLayout(level, level);
 		jpanel.setLayout(experimentLayout);

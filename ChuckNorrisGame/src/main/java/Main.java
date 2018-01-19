@@ -1,5 +1,3 @@
-import Manager.GameManager;
-
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Main
@@ -8,7 +6,7 @@ public class Main
 	{
 		System.out.print("ChuckNorris game started...");
 
-		MyForm form = new MyForm(GameManager.getLevel());
+		MyForm form = new MyForm();
 		form.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 }

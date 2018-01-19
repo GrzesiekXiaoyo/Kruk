@@ -1,5 +1,7 @@
 package Points;
 
+import Enums.Operation;
+
 public class PointCalculator
 {
 	private static PointCalculator calculator = new PointCalculator();
@@ -15,14 +17,9 @@ public class PointCalculator
 		return calculator;
 	}
 
-	public void AddPoints()
+	public void SetPoints(Operation operation)
 	{
-		points++;
-	}
-
-	public void SubPoints()
-	{
-		points--;
+		points += operation.getValue();
 	}
 
 	public int getPoints()

@@ -1,5 +1,6 @@
 package Actions;
 
+import Enums.Operation;
 import Points.PointCalculator;
 
 import javax.swing.*;
@@ -21,14 +22,13 @@ public class ButtonImageClick implements ActionListener
 
 	public void actionPerformed(ActionEvent e)
 	{
+		Operation operation = Operation.Sub;
 		if (isChuck)
 		{
-			pointCalculator.AddPoints();
-		} else
-		{
-			pointCalculator.SubPoints();
+			operation = Operation.Add;
 		}
 
+		pointCalculator.SetPoints(operation);
 		this.pointLabel.setText(String.valueOf(pointCalculator.getPoints()));
 	}
 }
