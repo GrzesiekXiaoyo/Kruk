@@ -1,6 +1,6 @@
 package Board;
 
-import Buttons.BuilderDirector;
+import Buttons.ButtonBuilderDirector;
 import Buttons.ButtonImageBuilder;
 import Manager.LevelManager;
 
@@ -18,10 +18,9 @@ public class BoardGenerator
 		{
 			for (int i = 0; i < elements; i++)
 			{
-				boolean isChuck = getRandomBoolean();
-				if (isChuck)
+				if (getRandomBoolean())
 				{
-					board[i] = isChuck;
+					board[i] = true;
 					return board;
 				}
 			}
@@ -41,11 +40,11 @@ public class BoardGenerator
 		jpanel.setLayout(experimentLayout);
 		boolean[] board = getBoard();
 		ButtonImageBuilder buttonImageBuilder = new ButtonImageBuilder();
-		BuilderDirector builderDirector = new BuilderDirector(buttonImageBuilder);
+		ButtonBuilderDirector buttonBuilderDirector = new ButtonBuilderDirector(buttonImageBuilder);
 		for (boolean value : board)
 		{
-			builderDirector.buildButton(value, jLabel);
-			jpanel.add(builderDirector.getButton());
+			buttonBuilderDirector.buildButton(value, jLabel);
+			jpanel.add(buttonBuilderDirector.getButton());
 		}
 	}
 }

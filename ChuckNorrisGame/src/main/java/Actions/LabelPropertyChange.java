@@ -1,6 +1,7 @@
 package Actions;
 
 import Board.BoardGenerator;
+import Converters.IntegerConverter;
 import Enums.Operation;
 import Exceptions.EndGameException;
 import Manager.LevelManager;
@@ -23,7 +24,10 @@ public class LabelPropertyChange implements PropertyChangeListener
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		Operation operation = Operation.Add;
-		if (Integer.valueOf((String) evt.getNewValue()) < Integer.valueOf((String) evt.getOldValue()))
+
+		Integer newValue = IntegerConverter.getInteger(evt.getNewValue());
+		Integer oldValue = IntegerConverter.getInteger(evt.getOldValue());
+		if (newValue < oldValue)
 		{
 			operation = Operation.Sub;
 		}
@@ -34,6 +38,7 @@ public class LabelPropertyChange implements PropertyChangeListener
 			BoardGenerator.PrepareBoard(pointLabel, panel);
 		} catch (EndGameException e)
 		{
+			//todo
 			JOptionPane.showMessageDialog(null, "Congratulation game is end.", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
 			System.exit(0);
 		}

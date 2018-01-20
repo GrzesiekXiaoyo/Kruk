@@ -2,11 +2,11 @@ package Buttons;
 
 import javax.swing.*;
 
-public class BuilderDirector
+public class ButtonBuilderDirector
 {
 	private ButtonBuilder buttonBuilder;
 
-	public BuilderDirector(ButtonBuilder buttonBuilder)
+	public ButtonBuilderDirector(ButtonBuilder buttonBuilder)
 	{
 		this.buttonBuilder = buttonBuilder;
 	}
