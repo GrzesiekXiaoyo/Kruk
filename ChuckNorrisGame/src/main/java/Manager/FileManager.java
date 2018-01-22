@@ -17,7 +17,7 @@ public class FileManager
 			image = ImageIO.read(imageFile);
 		} catch (IOException e)
 		{
-			System.err.println("Blad odczytu obrazka");
+			System.err.println("Error during reading image");
 			e.printStackTrace();
 		}
 

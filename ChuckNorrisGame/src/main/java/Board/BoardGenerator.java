@@ -29,7 +29,7 @@ public class BoardGenerator
 
 	private static boolean getRandomBoolean()
 	{
-		return Math.random() < 0.3;
+		return Math.random() < 0.15;
 	}
 
 	public static void PrepareBoard(JLabel jLabel, JPanel jpanel)

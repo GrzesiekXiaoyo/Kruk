@@ -38,7 +38,6 @@ public class LabelPropertyChange implements PropertyChangeListener
 			BoardGenerator.PrepareBoard(pointLabel, panel);
 		} catch (EndGameException e)
 		{
-			//todo
 			JOptionPane.showMessageDialog(null, "Congratulation game is end.", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
 			System.exit(0);
 		}

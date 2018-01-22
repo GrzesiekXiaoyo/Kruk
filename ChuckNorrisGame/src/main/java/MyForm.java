@@ -1,15 +1,11 @@
 import Actions.LabelPropertyChange;
+import Actions.TimerAction;
 import Board.BoardGenerator;
-import Manager.LevelManager;
 import Manager.SettingsManager;
 import Points.PointCalculator;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-//todo dodac timer ktory sprawdzi ze nic sie nie zmienilo przez kilka sec to zmiana boarda
 
 public class MyForm extends JFrame
 {
@@ -37,14 +33,7 @@ public class MyForm extends JFrame
 
 		this.setMinimumSize(new Dimension(SettingsManager.MIN_Width, SettingsManager.MIN_Hight));
 
-		//todo
-		Timer timer = new Timer(5000, new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				pointLabel.setText(String.valueOf(LevelManager.getLevel() - 1));
-			}
-		});
+		Timer timer = new Timer(SettingsManager.START_IMAGE_CHANGE, new TimerAction(pointLabel));
 		timer.start();
 	}
 
