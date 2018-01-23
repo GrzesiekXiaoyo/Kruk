@@ -22,6 +22,11 @@ public class PointCalculator
 		points += operation.getValue();
 	}
 
+	public void resetPoints()
+	{
+		points = 0;
+	}
+
 	public int getPoints()
 	{
 		return points;

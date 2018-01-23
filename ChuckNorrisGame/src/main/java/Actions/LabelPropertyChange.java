@@ -25,8 +25,8 @@ public class LabelPropertyChange implements PropertyChangeListener
 	{
 		Operation operation = Operation.Add;
 
-		Integer newValue = IntegerConverter.getInteger(evt.getNewValue());
-		Integer oldValue = IntegerConverter.getInteger(evt.getOldValue());
+		Integer newValue = IntegerConverter.convert(evt.getNewValue());
+		Integer oldValue = IntegerConverter.convert(evt.getOldValue());
 		if (newValue < oldValue)
 		{
 			operation = Operation.Sub;
